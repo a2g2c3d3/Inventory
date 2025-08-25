@@ -1300,7 +1300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &467937355
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1915,7 +1915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &666712114
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3503,10 +3503,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uCF54\uB529\uC758 \uB178\uC608\uAC00 \uB41C\uC9C0 10\uB144\uC9DC\uB9AC
-    \uB418\uB294 \uBA38\uC2B4\uC785\uB2C8\uB2E4. \uC624\uB298\uB3C4 \uBC24\uC0D0\uC77C\uB9CC
-    \uB0A8\uC544\uC11C \uCE58\uD0A8\uC744 \uC2DC\uD0AC\uC9C0\uB3C4 \uBAA8\uB978\uB2E4\uB294
-    \uC0DD\uAC01\uC5D0 \uBC30\uBBFC\uC744 \uD0A4\uACE0 \uC788\uB124\uC694."
+  m_text: "\uC720\uB2C8\uD2F0\uC9F1\uC740 UI\uC791\uC5C5\uC774 \uC815\uB9D0 \uC7AC\uBC0C\uB2E4\uACE0
+    \uC0DD\uAC01\uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4. \uC544\uB9C8\uB3C4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6122a824ebfc5e149948ebb6af1edfe7, type: 2}
   m_sharedMaterial: {fileID: -3727215086968211718, guid: 6122a824ebfc5e149948ebb6af1edfe7, type: 2}
@@ -3533,13 +3531,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
