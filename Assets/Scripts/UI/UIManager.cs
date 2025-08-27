@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject); // 이미 인스턴스가 존재하면 새로 생성된 이 객체를 파괴합니다.
         }
+        uiInventory.InitInventoryUI(100);
     }
 
     private void Start()

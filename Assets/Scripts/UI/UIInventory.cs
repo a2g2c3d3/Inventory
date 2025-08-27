@@ -9,18 +9,18 @@ public class UIInventory : MonoBehaviour
 
     public void InitInventoryUI(int slotCount) //slotCount = 100
     {
-        // 효율적인 오브젝트 풀링을 위해 한 번만 슬롯을 생성
-        if (uiSlots.Count == 0)
+        if (uiSlots.Count == 0) //슬롯이없으면 만들어라
         {
             for (int i = 0; i < slotCount; i++)
             {
                 UISlot newSlot = Instantiate(uiSlotPrefab, slotParent);
                 uiSlots.Add(newSlot);
+                uiSlots[i].gameObject.SetActive(false);
             }
         }
     }
 
-    public void UpdateInventoryUI(List<ItemData> inventory)
+    public void UpdateInventoryUI(List<InventoryItem> inventory)
     {
         for (int i = 0; i < uiSlots.Count; i++)
         {

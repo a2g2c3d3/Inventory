@@ -6,17 +6,41 @@ using UnityEngine.UI;
 public class UISlot : MonoBehaviour
 {
     [SerializeField] private Image itemImage;
-    [SerializeField] private bool isEquip;
+    [SerializeField] private Image equipMark;
+    [SerializeField] private InventoryItem _item;
 
-    public void SetItem(ItemData itemData)
+    private void Start()
     {
-        itemImage.enabled = true;
-        itemImage.sprite = itemData.itemIcon;
+        CheckEquipMark();
     }
 
-    public void RefreshUI()
+    public void SetItem(InventoryItem item)
     {
-        itemImage.enabled = false;
-        itemImage.sprite = null;
+        _item = item;
+        itemImage.enabled = true;
+        itemImage.sprite = _item.itemData.itemIcon;
+    }
+    public void Update()
+    {
+        CheckEquipMark();
+    }
+    
+
+    public void OnEquipButton()
+    {
+        GameManager.Instance.player.ToggleEquip(_item);
+        CheckEquipMark();
+    }
+
+    public void CheckEquipMark()
+    {
+        if (_item.isEquipped)
+        {
+            equipMark.gameObject.SetActive(true);
+        }
+        else
+        {
+            equipMark.gameObject.SetActive(false);
+        }
     }
 }

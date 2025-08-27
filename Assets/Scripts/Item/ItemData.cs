@@ -1,10 +1,22 @@
 using UnityEngine;
 
-public enum Itemtype
+public enum ItemType
 {
     Weapon,
     Armor,
+    Shield, 
+    Helmet, 
     Potion
+}
+
+public enum PotionType
+{
+    Atk,
+    Def,
+    HP,
+    Exp,
+    Cri
+
 }
 
 [CreateAssetMenu(fileName ="New Item", menuName = "Item")]
@@ -12,14 +24,12 @@ public class ItemData : ScriptableObject
 {
     public string itemName;
     public Sprite itemIcon;
-    public Itemtype itemType;
+    public ItemType itemType;
 
-    //公扁
-    public int extraAtk;
-    //规绢备
-    public int extraDef;
-    //器记
-    public int healAmount;
+    public int itemStat;
+
+    public PotionType potionType;
+    public int potionStat;
 }
 
 

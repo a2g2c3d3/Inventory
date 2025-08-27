@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 410598eef0f0463419681fdfa59337cb, type: 3}
-  m_Name: "\uB098\uBB34\uBC29\uD328"
+  m_Name: "\uBAA9\uAC80"
   m_EditorClassIdentifier: 
-  itemName: "\uB098\uBB34\uBC29\uD328"
-  itemIcon: {fileID: 1973757736, guid: e7bf5bb29ff9b3d4fb04a331e92c4e03, type: 3}
+  itemName: "\uBAA9\uAC80"
+  itemIcon: {fileID: -1944068573, guid: e7bf5bb29ff9b3d4fb04a331e92c4e03, type: 3}
   itemType: 0
-  extraAtk: 0
-  extraDef: 5
-  healAmount: 0
+  itemStat: 5
+  potionType: 0
+  potionStat: 0
