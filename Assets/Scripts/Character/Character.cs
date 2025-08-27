@@ -1,4 +1,8 @@
 
+using System.Collections.Generic;
+using UnityEngine;
+using System.Collections.Generic;
+
 public class Character
 {
     public string ID { get; private set; }
@@ -13,6 +17,7 @@ public class Character
     public int Cri {  get; private set; }
     public int Gold {  get; private set; }
 
+    public List<ItemData> inventory = new List<ItemData>();
 
     public Character(string id, int level, float exp, string description, int atk, int def, int hp, int cri, int gold)
     {
@@ -66,6 +71,12 @@ public class Character
     public void AddGold(int gold)
     {
         Gold += gold;
+    }
+
+    public void AddItem(ItemData item)
+    {
+        inventory.Add(item);
+        Debug.Log($"{item}À» È¹µæ ÇÏ¿´½À´Ï´Ù.");
     }
 
 }

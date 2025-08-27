@@ -1,18 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class UIInventory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private UISlot uiSlotPrefab;
+    [SerializeField] private Transform slotParent;
+    private List<UISlot> uiSlots = new List<UISlot>();
+
+    public void InitInventoryUI(int slotCount) //slotCount = 100
     {
-        
+        // 효율적인 오브젝트 풀링을 위해 한 번만 슬롯을 생성
+        if (uiSlots.Count == 0)
+        {
+            for (int i = 0; i < slotCount; i++)
+            {
+                UISlot newSlot = Instantiate(uiSlotPrefab, slotParent);
+                uiSlots.Add(newSlot);
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateInventoryUI(List<ItemData> inventory)
     {
-        
+        for (int i = 0; i < uiSlots.Count; i++)
+        {
+            if (i < inventory.Count)
+            {
+                uiSlots[i].gameObject.SetActive(true);
+                uiSlots[i].SetItem(inventory[i]);
+            }
+            else
+            {
+                uiSlots[i].gameObject.SetActive(false);
+            }
+        }
     }
 }
