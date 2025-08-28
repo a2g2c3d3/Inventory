@@ -1636,7 +1636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &467937355
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2210,9 +2210,9 @@ RectTransform:
   m_Father: {fileID: 173915346}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &602227657
 MonoBehaviour:
@@ -2464,7 +2464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &666712114
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2795,7 +2795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &741496956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3480,7 +3480,7 @@ RectTransform:
   m_Father: {fileID: 426210812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3604,10 +3604,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idleDialogue:
-  - "\uC778\uBCA4\uD1A0\uB9AC\uB108\uBB34\uC5B4\uB835\uB2E4"
-  - "\uC790\uACE0 \uB0B4\uC77C \uD558\uC790 \uADF8\uB0E5.."
-  - "\uC774\uC81C \uADF8\uB9CC\uD558\uC790.."
-  - "\uC778\uBCA4\uD1A0\uB9AC\uBD80\uD130 \uB9CC\uB4E4\uC5B4.."
+  - "UI\uB9CC\uB4E4\uAE30 \uC7AC\uBC0C\uB2E4!"
+  - "\uC804\uC124\uC758 \uAC80\uC774 \uAC16\uACE0\uC2F6\uC5B4!"
+  - "\uB808\uBCA8\uC744 \uC62C\uB9AC\uC790!"
+  - "\uB9C8\uC655\uC744 \uBB3C\uB9AC\uCE58\uACE0 \uC2F6\uB124~"
   DialogueText: {fileID: 1472690706}
 --- !u!1 &1092938988
 GameObject:
@@ -4301,7 +4301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1322494872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4730,7 +4730,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 60}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1452656723
 MonoBehaviour:
@@ -4795,18 +4795,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472690704}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 440525419}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 100}
-  m_SizeDelta: {x: 1500, y: 200}
-  m_Pivot: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -340}
+  m_SizeDelta: {x: -420, y: -880}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1472690706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4827,7 +4827,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC798\uB9CC\uB4E0\uAC70\uAC19\uC740\uB370?"
+  m_text: "\uD558\uD558 "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6122a824ebfc5e149948ebb6af1edfe7, type: 2}
   m_sharedMaterial: {fileID: -3727215086968211718, guid: 6122a824ebfc5e149948ebb6af1edfe7, type: 2}
@@ -4849,7 +4849,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 2194
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2

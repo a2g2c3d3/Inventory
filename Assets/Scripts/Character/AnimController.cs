@@ -6,7 +6,7 @@ using UnityEngine;
 public class AnimController : MonoBehaviour
 {
     private Animator anim;
-    public float blinkColldown = 3f;
+    public float blinkColldown;
     
 
     // Start is called before the first frame update

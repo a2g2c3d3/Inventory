@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
         if(Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -47,6 +46,7 @@ public class GameManager : MonoBehaviour
         uiManager.UIStatus.SetStatUI(player);
     }
 
+    //아이템을 사면->인벤토리에 들어감->인벤토리ui를 업데이트해줌
     public void BuyItem()
     {
         int itemPrice = 2000;
@@ -71,6 +71,4 @@ public class GameManager : MonoBehaviour
             Debug.Log("아이템을 얻을 수 없습니다!!");
         }
     }
-    //아이템을 사면->인벤토리에 들어감->인벤토리ui를 업데이트해줌
-   
 }

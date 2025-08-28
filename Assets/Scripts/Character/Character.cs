@@ -86,39 +86,39 @@ public class Character
     // UISlot에서 호출하는 통합 메서드
     public void ToggleEquip(InventoryItem itemToHandle)
     {
-        // 포션은 장착/해제 대상이 아닙니다.
+        // 포션
         if (itemToHandle.itemData.itemType == ItemType.Potion)
         {
             UsePotion(itemToHandle);
             return;
         }
 
-        // 아이템이 이미 장착된 상태인지 확인합니다.
+        // 아이템이 이미 장착된 상태인지 확인
         if (equippedItems.ContainsValue(itemToHandle))
         {
-            // 이미 장착된 아이템이라면 해제합니다.
+            // 장착중이면 해제
             UnequipItem(itemToHandle);
         }
         else
         {
-            // 아직 장착되지 않은 아이템이라면 장착합니다.
+            // 아니면 장착
             EquipItem(itemToHandle);
         }
 
-        // UI 전체를 갱신합니다.
-        RefreshUI();
+        // UI 갱신
+        UIManager.Instance.RefreshUI();
     }
 
-    // 아이템을 장착하는 메서드 (내부 호출용)
+    // 아이템 장착
     private void EquipItem(InventoryItem itemToEquip)
     {
-        // 1. 이미 같은 타입의 아이템이 장착되어 있다면 먼저 해제합니다.
+        // 1. 이미 같은 타입의 아이템이 장착되어 있다면 해제
         if (equippedItems.ContainsKey(itemToEquip.itemData.itemType))
         {
             UnequipItem(equippedItems[itemToEquip.itemData.itemType]);
         }
 
-        // 2. 새 아이템을 장착하고 능력치를 적용합니다.
+        // 2. 아이템을 장착하고 능력치를 적용
         equippedItems[itemToEquip.itemData.itemType] = itemToEquip;
         itemToEquip.isEquipped = true;
 
@@ -135,17 +135,17 @@ public class Character
         }
     }
 
-    // 아이템을 해제하는 메서드 (내부 호출용)
+    // 아이템 해제
     private void UnequipItem(InventoryItem itemToUnequip)
     {
-        // 1. 딕셔너리에서 아이템을 제거하고 isEquipped 상태를 false로 변경합니다.
+        // 1. 딕셔너리에서 아이템을 제거하고 isEquipped = false
         if (equippedItems.ContainsValue(itemToUnequip))
         {
             equippedItems.Remove(itemToUnequip.itemData.itemType);
             itemToUnequip.isEquipped = false;
         }
 
-        // 2. 능력치를 되돌립니다.
+        // 2. 능력치 복구
         switch (itemToUnequip.itemData.itemType)
         {
             case ItemType.Weapon:
@@ -158,7 +158,7 @@ public class Character
                 break;
         }
     }
-    // 포션 아이템을 사용하는 메서드
+    // 포션이면
     public void UsePotion(InventoryItem potion)
     {
         switch (potion.itemData.potionType)
@@ -180,124 +180,11 @@ public class Character
                 break;
         }
 
-        // 포션을 사용했으니 인벤토리에서 제거합니다.
+        // 사용후 제거
         inventory.Remove(potion);
 
-        // UI를 갱신합니다.
-        RefreshUI();
+        // UI 갱신
+        UIManager.Instance.RefreshUI();
     }
 
-    public void RefreshUI()
-    {
-        UIManager.Instance.UIInventory.UpdateInventoryUI(inventory);
-        UIManager.Instance.UIStatus.SetStatUI(GameManager.Instance.player);
-        UIManager.Instance.UIMainMenu.SetInformationUI(GameManager.Instance.player);
-    }
 }
-  
-
-    //private Dictionary<ItemType, InventoryItem> equippedItems = new Dictionary<ItemType, InventoryItem>();
-    //public void ToggleEquip(InventoryItem item)
-    //{
-    //    // 딕셔너리에 이미 장착된 아이템인지 확인합니다.
-    //    if (equippedItems.ContainsValue(item))
-    //    {
-    //        // 이미 장착된 아이템이라면 해제 로직을 실행합니다.
-    //        UnequipItem(item);
-    //    }
-    //    else
-    //    {
-    //        // 아직 장착되지 않은 아이템이라면 장착 로직을 실행합니다.
-    //        EquipItem(item);
-    //    }
-
-    //    // 아이템 인벤토리의 상태를 정렬합니다.
-    //    inventory.Sort((item1, item2) => item2.isEquipped.CompareTo(item1.isEquipped));
-
-    //    // UI 전체를 갱신합니다.
-    //    UIManager.Instance.UIInventory.UpdateInventoryUI(inventory);
-    //    UIManager.Instance.UIStatus.SetStatUI(GameManager.Instance.player);
-    //}
-
-    //// 아이템을 장착하는 메서드
-    //private void EquipItem(InventoryItem item)
-    //{
-    //    // 같은 타입의 아이템이 이미 장착되어 있다면 먼저 해제합니다.
-    //    if (equippedItems.ContainsKey(item.itemData.itemType))
-    //    {
-    //        UnequipItem(equippedItems[item.itemData.itemType]);
-    //    }
-
-    //    // 아이템을 딕셔너리에 추가하고 isEquipped 상태를 true로 변경합니다.
-    //    equippedItems[item.itemData.itemType] = item;
-    //    item.isEquipped = true;
-
-    //    switch (item.itemData.itemType)
-    //    {
-    //        case ItemType.Weapon:
-    //            AddAtk(item.itemData.itemStat);
-    //            break;
-    //        case ItemType.Shield:
-    //        case ItemType.Armor:
-    //        case ItemType.Helmet:
-    //            AddDef(item.itemData.itemStat);
-    //            break;
-    //    }
-    //}
-
-    //// 아이템을 해제하는 메서드
-    //private void UnequipItem(InventoryItem item)
-    //{
-    //    // 딕셔너리에서 아이템을 제거하고 isEquipped 상태를 false로 변경합니다.
-    //    equippedItems.Remove(item.itemData.itemType);
-    //    item.isEquipped = false;
-
-    //    switch (item.itemData.itemType)
-    //    {
-    //        case ItemType.Weapon:
-    //            AddAtk(-item.itemData.itemStat);
-    //            break;
-    //        case ItemType.Shield:
-    //        case ItemType.Armor:
-    //        case ItemType.Helmet:
-    //            AddDef(-item.itemData.itemStat);
-    //            break;
-    //    }
-    //}
-    //public void EquiptItem(InventoryItem item)
-    //{
-    //    if (item.isEquipped)
-    //    {
-    //        switch (item.itemData.itemType)
-    //        {
-    //            case ItemType.Weapon:
-    //                GameManager.Instance.player.AddAtk(item.itemData.itemStat);
-    //                break;
-    //            case ItemType.Armor:
-    //            case ItemType.Helmet:
-    //            case ItemType.Shield:
-    //                GameManager.Instance.player.AddDef(item.itemData.itemStat);
-    //                break;
-    //        }
-    //        UIManager.Instance.UIStatus.SetStatUI(GameManager.Instance.player);
-    //    }
-    //    else 
-    //    {
-    //        switch (item.itemData.itemType)
-    //        {
-    //            case ItemType.Weapon:
-    //                GameManager.Instance.player.AddAtk(-item.itemData.itemStat);
-    //                break;
-    //            case ItemType.Armor:
-    //            case ItemType.Helmet:
-    //            case ItemType.Shield:
-    //                GameManager.Instance.player.AddDef(-item.itemData.itemStat);
-    //                break;
-    //        }
-    //        UIManager.Instance.UIStatus.SetStatUI(GameManager.Instance.player);
-    //    }
-
-
-    //}
-
-
