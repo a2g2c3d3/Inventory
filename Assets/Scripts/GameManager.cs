@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     }
     public void SetPlayerData()
     {
-        _player = new Character("유니티짱", 10, 9, "마왕을 물리치기위해 오늘도 열심히 UI를 만들고 있는 용사 유니티짱이다.", 35, 40, 100, 25, 50000);
+        _player = new Character("유니티짱", 1, 0, "마왕을 물리치기위해 오늘도 열심히 UI를 만들고 있는 용사 유니티짱이다.", 5, 3, 10, 1, 50000);
 
         uiManager.UIMainMenu.SetInformationUI(player);
         uiManager.UIStatus.SetStatUI(player);
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         int itemPrice = 2000;
         if (player.Gold < itemPrice)
         {
-            uiManager.ShowLog("골드가 부족합니다", Color.red);
+            uiManager.ShowLog("골드가 부족해!", Color.red);
             return;
         }
         if (itemDB.Count > 0)
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            uiManager.ShowLog("획득할 아이템이 없습니다.",Color.red);
+            uiManager.ShowLog("어 이러면안되는데.",Color.red);
         }
     }
        

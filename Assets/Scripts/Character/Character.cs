@@ -79,7 +79,7 @@ public class Character
     public void AddItem(ItemData item)
     {
         inventory.Add(new InventoryItem(item));
-        Debug.Log($"{item}À» È¹µæ ÇÏ¿´½À´Ï´Ù.");
+        UIManager.Instance.ShowLog($"{item.itemName} È¹µæ!", UIManager.Instance.OriginalColor);
     }
     
 
