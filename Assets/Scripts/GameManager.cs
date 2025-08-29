@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
     }
     public void ClearInventoryButton()
     {
-        int gold = player.inventory.Count * 100;
+        int gold = player.inventory.Count * 500;
         player.AddGold(gold);
         uiManager.ShowLog($"{gold}°ñµå È¹µæ!" ,uiManager.OriginalColor);
         player.inventory.Clear();
