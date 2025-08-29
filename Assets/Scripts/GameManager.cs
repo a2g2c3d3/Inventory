@@ -77,6 +77,14 @@ public class GameManager : MonoBehaviour
             uiManager.ShowLog("¾î ÀÌ·¯¸é¾ÈµÇ´Âµ¥.",Color.red);
         }
     }
+    public void ClearInventoryButton()
+    {
+        int gold = player.inventory.Count * 100;
+        player.AddGold(gold);
+        uiManager.ShowLog($"{gold}°ñµå È¹µæ!" ,uiManager.OriginalColor);
+        player.inventory.Clear();
+        uiManager.RefreshUI();
+    }
        
     
 }
