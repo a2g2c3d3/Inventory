@@ -23,6 +23,7 @@
 - GitHub: https://github.com/a2g2c3d3
 - Email: papa3520@naver.com
 
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/03c8383f-c862-4f46-a02f-6b6d37123023" />
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/3bca275c-ced5-4a32-ac59-f3a4e28418d1" />
+
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/2739ec96-4c0a-4dec-9b99-f66da6c77a38" />
 
