@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -8,6 +9,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private UIMainMenu uiMainMenu;
     [SerializeField] private UIStatus uiStatus; 
     [SerializeField] private UIInventory uiInventory;
+
+    [Header("·Î±×")]
+    [SerializeField] public TextMeshProUGUI logText;
+    private Color _color;
+    public Color OriginalColor => _color;
+    private Coroutine logCoroutine;
 
     public UIMainMenu UIMainMenu => uiMainMenu;
     public UIStatus UIStatus => uiStatus;
@@ -33,6 +40,8 @@ public class UIManager : MonoBehaviour
         uiInventory.gameObject.SetActive(false);
         uiStatus.gameObject.SetActive(false);
         uiMainMenu.gameObject.SetActive(true);
+        logText.gameObject.SetActive(false);
+        _color = logText.color;
     }
 
     public void RefreshUI()
@@ -42,5 +51,28 @@ public class UIManager : MonoBehaviour
         uiMainMenu.SetInformationUI(GameManager.Instance.player);
     }
 
+    public void ShowLog(string message, Color color)
+    {
+        if (logCoroutine != null)
+        {
+            StopCoroutine(logCoroutine);
+        }
+        logCoroutine = StartCoroutine(Log(message, color));
+
+    }
+
+    IEnumerator Log(string message, Color color)
+    {
+        logText.text = message;
+        logText.color = color;
+        logText.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(1);
+
+        logText.gameObject.SetActive(false);
+        logText.color = _color;
+
+        logCoroutine = null;
+    }
 
 }

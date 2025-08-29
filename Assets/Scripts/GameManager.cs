@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private UIManager uiManager;
 
+
     private void Awake()
     {
         if(Instance == null)
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
     }
     public void SetPlayerData()
     {
-        _player = new Character("유니티짱", 10, 9, "유니티짱은 UI작업이 정말 재밌다고 생각하고 있습니다. 진짜로.", 35, 40, 100, 25, 50000);
+        _player = new Character("유니티짱", 10, 9, "마왕을 물리치기위해 오늘도 열심히 UI를 만들고 있는 용사 유니티짱이다.", 35, 40, 100, 25, 50000);
 
         uiManager.UIMainMenu.SetInformationUI(player);
         uiManager.UIStatus.SetStatUI(player);
@@ -40,19 +41,23 @@ public class GameManager : MonoBehaviour
 
     public void OnBattle()
     {
-        player.AddExp(Random.Range(1,5));
-        player.AddGold(Random.Range(1, 10)*player.Level);
+        int exp = Random.Range(1, 5)+(player.Level%10);
+        int gold = Random.Range(1, 10)*player.Level;
+        player.AddExp(exp);
+        player.AddGold(gold);
+        uiManager.ShowLog($"경험치 +{exp},  {gold}골드 획득!", uiManager.OriginalColor);
         uiManager.UIMainMenu.SetInformationUI(player);
         uiManager.UIStatus.SetStatUI(player);
     }
 
     //아이템을 사면->인벤토리에 들어감->인벤토리ui를 업데이트해줌
+    //GetItemLog에 획득한 아이템 이름 출력
     public void BuyItem()
     {
         int itemPrice = 2000;
         if (player.Gold < itemPrice)
         {
-            Debug.Log("돈이부족해요!!!!!");
+            uiManager.ShowLog("골드가 부족합니다", Color.red);
             return;
         }
         if (itemDB.Count > 0)
@@ -62,13 +67,16 @@ public class GameManager : MonoBehaviour
 
             player.AddItem(randomItem);
             player.UseGold(itemPrice);
+            uiManager.ShowLog($"{randomItem.itemName} 획득!", uiManager.OriginalColor);
 
             UIManager.Instance.UIMainMenu.SetInformationUI(player);
             UIManager.Instance.UIInventory.UpdateInventoryUI(player.inventory);
         }
         else
         {
-            Debug.Log("아이템을 얻을 수 없습니다!!");
+            uiManager.ShowLog("획득할 아이템이 없습니다.",Color.red);
         }
     }
+       
+    
 }

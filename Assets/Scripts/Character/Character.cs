@@ -98,6 +98,7 @@ public class Character
         {
             // 장착중이면 해제
             UnequipItem(itemToHandle);
+           
         }
         else
         {
@@ -133,6 +134,7 @@ public class Character
                 AddDef(itemToEquip.itemData.itemStat);
                 break;
         }
+        UIManager.Instance.ShowLog($"{itemToEquip.itemData.itemName} 장착!", UIManager.Instance.OriginalColor);
     }
 
     // 아이템 해제
@@ -157,6 +159,7 @@ public class Character
                 AddDef(-itemToUnequip.itemData.itemStat);
                 break;
         }
+        UIManager.Instance.ShowLog($"{itemToUnequip.itemData.itemName} 해제!", Color.red);
     }
     // 포션이면
     public void UsePotion(InventoryItem potion)
@@ -179,6 +182,7 @@ public class Character
                 GameManager.Instance.player.AddDef(potion.itemData.potionStat);
                 break;
         }
+        UIManager.Instance.ShowLog($"{potion.itemData.potionType} {potion.itemData.potionStat} 증가!", UIManager.Instance.OriginalColor);
 
         // 사용후 제거
         inventory.Remove(potion);

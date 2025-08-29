@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,9 +19,12 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI goldText;
     [SerializeField] private Image expBar;
 
+    
 
     private bool isStatus;
     private bool isInventory;
+    
+   
 
     private void Start()
     {
@@ -29,6 +33,7 @@ public class UIMainMenu : MonoBehaviour
         backButton.onClick.AddListener(OpenMainMenu);
 
         backButton.gameObject.SetActive(false);
+       
     }
     public void OpenMainMenu()
     {
@@ -73,4 +78,6 @@ public class UIMainMenu : MonoBehaviour
         descriptionText.text = $"{character.Description}";
         goldText.text = $"{character.Gold}";
     }
+
+
 }
